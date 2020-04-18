@@ -21,7 +21,7 @@ COPY run_wordpress.sh /
 #COPY ssmtp /etc/ssmtp
 COPY php.ini /etc/opt/remi/php70/php.ini
 RUN rm -fr /run/httpd; ln -sf /tmp/run/httpd /run/httpd
-RUN mkdir /var/www/html/moodledata
+
 
 VOLUME /var/www/html
 
