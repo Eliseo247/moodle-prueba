@@ -109,7 +109,7 @@ $CFG->wwwroot   = 'http://moodle3.8-ansp-wordpress.apps.3b45bf4aec6d4d9c9076.eas
 //
 // - On Windows systems you might specify something like 'c:\moodledata'
 
-$CFG->dataroot  = '/var/www/html/moodledata';
+$CFG->dataroot  = '/var/www/moodledata';
 
 
 //=========================================================================
