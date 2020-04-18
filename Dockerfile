@@ -30,7 +30,7 @@ VOLUME /var/www/html
 RUN chmod a+rw /etc/passwd
 #RUN chmod a+rw /etc/ssmtp
 RUN chown -R apache. /var/www/
-RUN chmod -R 755 /var/www/html/
+RUN chmod -R 755 /var/www/
 
 
 USER 997
