@@ -31,7 +31,7 @@ RUN chmod a+rw /etc/passwd
 #RUN chmod a+rw /etc/ssmtp
 RUN chown -R apache. /var/www/
 RUN chmod -R 755 /var/www/html/
-RUN chmod -r 755 /var/www/moodledata/
+RUN chmod -R 755 /var/www/moodledata
 
 
 USER 997
