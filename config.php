@@ -38,11 +38,11 @@ $CFG = new stdClass();
 // will be stored.  This database must already have been created         //
 // and a username/password created to access it.                         //
 
-$CFG->dbtype    = 'mariadb';      // 'pgsql', 'mariadb', 'mysqli', 'sqlsrv' or 'oci'
+$CFG->dbtype    = 'moodle';      // 'pgsql', 'mariadb', 'mysqli', 'sqlsrv' or 'oci'
 $CFG->dblibrary = 'native';     // 'native' only at the moment
-$CFG->dbhost    = '172.30.214.41';  // eg 'localhost' or 'db.isp.com' or IP
-$CFG->dbname    = 'wordpress';     // database name, eg moodle
-$CFG->dbuser    = 'wordpress';   // your database username
+$CFG->dbhost    = '172.30.62.63';  // eg 'localhost' or 'db.isp.com' or IP
+$CFG->dbname    = 'moodle';     // database name, eg moodle
+$CFG->dbuser    = 'moodle';   // your database username
 $CFG->dbpass    = 'prueba123';   // your database password
 $CFG->prefix    = 'mdl_';       // prefix to use for all table names
 $CFG->dboptions = array(
@@ -93,7 +93,7 @@ $CFG->dboptions = array(
 // If you need both intranet and Internet access please read
 // http://docs.moodle.org/en/masquerading
 
-$CFG->wwwroot   = 'http://moodle3.8-ansp-wordpress.apps.3b45bf4aec6d4d9c9076.eastus.azmosa.io/';
+$CFG->wwwroot   = 'http://moodle38-ansp-wordpress.apps.3b45bf4aec6d4d9c9076.eastus.azmosa.io/';
 
 
 //=========================================================================
