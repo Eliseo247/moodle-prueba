@@ -8,7 +8,7 @@ if ! [ -d /tmp/lock/httpd ]; then mkdir -p /tmp/lock/httpd;fi
 
 # install wordpress if not in persistentvolume
 if [ ! -f /var/www/html/index.php ]; then
-  cp -rf /moodle/moodle* /var/www/html/
+  cp -rf /moodle/moodle/* /var/www/html/
   cp /config.php /var/www/html/
   
  # mkdir /var/www/moodledata
