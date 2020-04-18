@@ -93,7 +93,7 @@ $CFG->dboptions = array(
 // If you need both intranet and Internet access please read
 // http://docs.moodle.org/en/masquerading
 
-$CFG->wwwroot   = 'http://ultmo-ansp-wordpress.apps.3b45bf4aec6d4d9c9076.eastus.azmosa.io';
+$CFG->wwwroot   = 'http://moodle3.8-ansp-wordpress.apps.3b45bf4aec6d4d9c9076.eastus.azmosa.io/';
 
 
 //=========================================================================
