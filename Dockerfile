@@ -19,9 +19,6 @@ ADD moodle.tar.gz /moodle/
 COPY httpd.conf / 
 COPY run_wordpress.sh /
 COPY ssmtp /etc/ssmtp
-COPY php.ini /etc/opt/remi/php73/php.ini
-COPY wp-config.php /
-
 RUN rm -fr /run/httpd; ln -sf /tmp/run/httpd /run/httpd
 
 VOLUME /var/www/html
