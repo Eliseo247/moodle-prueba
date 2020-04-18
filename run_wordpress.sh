@@ -9,7 +9,7 @@ if ! [ -d /tmp/lock/httpd ]; then mkdir -p /tmp/lock/httpd;fi
 # install wordpress if not in persistentvolume
 if [ ! -f /var/www/html/index.php ]; then
   cp -rf /moodle/* /var/www/html/
-  
+  mkdir /var/www/html/moodledata
 fi
 
 echo "openshift-wordpress:x:`id -u`:0:openshift-wordpress:/:/sbin/nologin" >> /etc/passwd
