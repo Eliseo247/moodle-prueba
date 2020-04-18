@@ -15,7 +15,7 @@ RUN sed -E -i -e 's/DirectoryIndex (.*)$/DirectoryIndex index.php \1/g' /etc/htt
 
 
 
-ADD moodle.tar.gz /var/www/html
+ADD moodle.tar.gz /moodle/
 RUN mkdir /var/www/moodledata
 COPY httpd.conf / 
 COPY run_wordpress.sh /
