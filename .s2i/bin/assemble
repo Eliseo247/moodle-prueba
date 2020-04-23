@@ -1,15 +1,16 @@
 mkdir /opt/app-root/moodleda
 
-chown -R apache. /opt/app-root/moodleda
-chmod -R 777 /opt/app-root/moodleda
+chown -R apache. /opt/app-root/moodledata
+chmod -R 777 /opt/app-root/moodledata
 
 #!/bin/bash
-mv moodle.tar.gz  mv /opt/app-root/src/
+mv moodle.tar  mv /opt/app-root/src/
 
-# restore build artifacts
-if [ "$(ls /tmp/s2i/artifacts/ 2>/dev/null)" ]; then
+
     mv /tmp/s2i/artifacts/* $HOME/.
-fi
+    
+    mv  moodle.tar $HOME/.
+
 
 #mover el moodle
 mv /tmp/s2i/src $HOME/src
