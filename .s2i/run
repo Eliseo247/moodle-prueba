@@ -1,5 +1,4 @@
-sh-4.2$ cat run      
-#!/bin/bash
+ #!/bin/bash
 
 source ${PHP_CONTAINER_SCRIPTS_PATH}/common.sh
 
