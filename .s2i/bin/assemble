@@ -6,9 +6,7 @@ chmod -R 777 /opt/app-root/moodledata
 ##################################################
 set -e
 
-mv /tmp/src/* ./
-
 # Fix source directory permissions
 fix-permissions ./
 
-    mv /tmp/artifacts/* $HOME/
+    mv /tmp/src/* $HOME/
