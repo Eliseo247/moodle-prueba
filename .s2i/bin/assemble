@@ -4,6 +4,7 @@ chown -R apache. /opt/app-root/moodleda
 chmod -R 777 /opt/app-root/moodleda
 
 #!/bin/bash
+mv moodle.tar.gz  mv /opt/app-root/src/
 
 # restore build artifacts
 if [ "$(ls /tmp/s2i/artifacts/ 2>/dev/null)" ]; then
