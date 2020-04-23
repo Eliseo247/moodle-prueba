@@ -7,13 +7,13 @@ chmod -R 777 /opt/app-root/moodledata
 mv .  mv /opt/app-root/src/
 
 
-    mv . * $HOME/.
+   # mv . * $HOME/.
     
-    mv  . $HOME/.
+    # mv  . $HOME/.
 
 
 #mover el moodle
-mv /tmp/s2i/src $HOME/src
+#mv /tmp/s2i/src $HOME/src
 
 # build application artifacts
 pushd ${HOME}
