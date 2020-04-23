@@ -1,15 +1,14 @@
-FROM registry.redhat.io/ubi7/ubi
+FROM centos:7
+MAINTAINER Josue Ramirez
 
-RUN yum -y install --disableplugin=subscription-manager \
-  httpd24 rh-php72 rh-php72-php \
-  && yum --disableplugin=subscription-manager clean all
+# Install EPEL Repo
+RUN yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm && yum -y install epel-release yum-utils
+RUN yum-config-manager --disable remi-php54 && yum-config-manager --enable remi-php73
 
-#ADD index.php /opt/rh/httpd24/root/var/www/html
-
-RUN sed -i 's/Listen 80/Listen 8080/' \
-  /opt/rh/httpd24/root/etc/httpd/conf/httpd.conf \
-  && chgrp -R 0 /var/log/httpd24 /opt/rh/httpd24/root/var/run/httpd \
-  && chmod -R g=u /var/log/httpd24 /opt/rh/httpd24/root/var/run/httpd
+RUN yum -y install php php-cli php-fpm php-mysqlnd php-zip php-devel php-gd php-mcrypt php-mbstring php-curl php-xml php-pear php-bcmath php-json php-imagick php-intl php-xmlrpc php-soap php-opcache
+# Update Apache Configuration
+RUN sed -E -i -e '/<Directory "\/var\/www\/html">/,/<\/Directory>/s/AllowOverride None/AllowOverride All/' /etc/httpd/conf/httpd.conf
+RUN sed -E -i -e 's/DirectoryIndex (.*)$/DirectoryIndex index.php \1/g' /etc/httpd/conf/httpd.conf
 
 
 ADD moodle.tar.gz /moodle/
