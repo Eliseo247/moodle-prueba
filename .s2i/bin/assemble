@@ -4,6 +4,8 @@ set -e
 mkdir /opt/app-root/moodledata
 chmod -R 777 /opt/app-root/moodledata
 
+yum install php-xmlrpc
+
 source ${PHP_CONTAINER_SCRIPTS_PATH}/common.sh
 
 shopt -s dotglob
