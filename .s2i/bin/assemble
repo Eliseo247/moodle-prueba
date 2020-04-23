@@ -1,4 +1,4 @@
-mkdir /opt/app-root/moodleda
+mkdir /opt/app-root/moodledata
 
 chown -R apache. /opt/app-root/moodledata
 chmod -R 777 /opt/app-root/moodledata
@@ -17,8 +17,8 @@ mv /tmp/s2i/src $HOME/src
 
 # build application artifacts
 pushd ${HOME}
-#make all
+make all
 
 # install the artifacts
-#make install
-#popd
+make install
+popd
