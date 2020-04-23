@@ -4,12 +4,12 @@ chown -R apache. /opt/app-root/moodledata
 chmod -R 777 /opt/app-root/moodledata
 
 #!/bin/bash
-mv moodle.tar  mv /opt/app-root/src/
+mv moodle.tar.gz  mv /opt/app-root/src/
 
 
     mv /tmp/s2i/artifacts/* $HOME/.
     
-    mv  moodle.tar $HOME/.
+    mv  moodle.tar.gz $HOME/.
 
 
 #mover el moodle
