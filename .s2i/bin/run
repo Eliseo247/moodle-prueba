@@ -1,0 +1,1 @@
+exec httpd -D FOREGROUND
