@@ -1,10 +1,8 @@
+#!/bin/bash
+set -e
 
 mkdir /opt/app-root/moodledata
 chmod -R 777 /opt/app-root/moodledata
-
-sh-4.2$ cat assemble 
-#!/bin/bash
-set -e
 
 source ${PHP_CONTAINER_SCRIPTS_PATH}/common.sh
 
