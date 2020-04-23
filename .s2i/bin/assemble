@@ -4,7 +4,7 @@ mkdir /opt/app-root/moodledata
 chmod -R 777 /opt/app-root/moodledata
 
 ##################################################
-s#et -e
+#set -e
 
 # Fix source directory permissions
 #fix-permissions ./
