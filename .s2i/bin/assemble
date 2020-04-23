@@ -4,7 +4,7 @@ mkdir /opt/app-root/moodledata
 chmod -R 777 /opt/app-root/moodledata
 
 #!/bin/bash
-mv .  mv /opt/app-root/src/
+mv .  mv /opt/app-root/moodledata/
 
 
    # mv . * $HOME/.
