@@ -13,7 +13,7 @@ RUN sed -i 's/Listen 80/Listen 8080/' \
 
 
 ADD moodle.tar.gz /moodle/
-RUN mkdir /var/www/moodledata
+RUN mkdir /opt/app-root/moodledata
 COPY httpd.conf / 
 COPY run_wordpress.sh /
 COPY config.php /
@@ -22,14 +22,14 @@ COPY php.ini /etc/opt/remi/php70/php.ini
 #UN rm -fr /run/httpd; ln -sf /tmp/run/httpd /run/httpd
 
 
-VOLUME /var/www/html
+VOLUME /opt/app-root/
 
 
 RUN chmod a+rw /etc/passwd
 #RUN chmod a+rw /etc/ssmtp
-RUN chown -R apache. /var/www/
-RUN chmod -R 777 /var/www/html/
-RUN chmod -R 777 /var/www/moodledata
+RUN chown -R apache. /opt/app-root/
+RUN chmod -R 777 /opt/app-root/
+
 
 
 USER 997
