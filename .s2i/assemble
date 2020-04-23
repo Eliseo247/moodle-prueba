@@ -1,7 +1,5 @@
 sh-4.2$ cat assemble 
 #!/bin/bash
-mkdir /opt/app-root/moodledata
-chmod -R 777 /opt/app-root/moodledata
 set -e
 
 source ${PHP_CONTAINER_SCRIPTS_PATH}/common.sh
@@ -65,3 +63,6 @@ process_extending_files ./php-post-assemble/ ${PHP_CONTAINER_SCRIPTS_PATH}/post-
 # Fix source directory permissions
 fix-permissions ./
 fix-permissions ${HTTPD_CONFIGURATION_PATH}
+
+mkdir /opt/app-root/moodledata
+chmod -R 777 /opt/app-root/moodledata
