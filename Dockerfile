@@ -1,18 +1,15 @@
-FROM centos:7
-#FROM eliseo247/redhat7php7
-#FROM ubi7/php-73
-#FROM registry.access.redhat.com/ubi7/php-73
-MAINTAINER Josue Ramirez
+FROM registry.redhat.io/ubi7/ubi
 
-# Install EPEL Repo
-RUN yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm && yum -y install epel-release yum-utils
-RUN yum-config-manager --disable remi-php54 && yum-config-manager --enable remi-php73
+RUN yum -y install --disableplugin=subscription-manager \
+  httpd24 rh-php72 rh-php72-php \
+  && yum --disableplugin=subscription-manager clean all
 
-RUN yum -y install php php-cli php-fpm php-mysqlnd php-zip php-devel php-gd php-mcrypt php-mbstring php-curl php-xml php-pear php-bcmath php-json php-imagick php-intl php-xmlrpc php-soap php-opcache
-# Update Apache Configuration
-RUN sed -E -i -e '/<Directory "\/var\/www\/html">/,/<\/Directory>/s/AllowOverride None/AllowOverride All/' /etc/httpd/conf/httpd.conf
-RUN sed -E -i -e 's/DirectoryIndex (.*)$/DirectoryIndex index.php \1/g' /etc/httpd/conf/httpd.conf
+ADD index.php /opt/rh/httpd24/root/var/www/html
 
+RUN sed -i 's/Listen 80/Listen 8080/' \
+  /opt/rh/httpd24/root/etc/httpd/conf/httpd.conf \
+  && chgrp -R 0 /var/log/httpd24 /opt/rh/httpd24/root/var/run/httpd \
+  && chmod -R g=u /var/log/httpd24 /opt/rh/httpd24/root/var/run/httpd
 
 
 ADD moodle.tar.gz /moodle/
@@ -39,10 +36,3 @@ USER 997
 EXPOSE 8080
 CMD ["/bin/sh", "/run_wordpress.sh"]
 
-LABEL io.k8s.description="Wordpress" \
-      io.k8s.display-name="wordpress apache centos7 epel php7" \
-      io.openshift.expose-services="8080:http" \
-      io.openshift.tags="builder,wordpress,apache" \
-      io.openshift.min-memory="1Gi" \
-      io.openshift.min-cpu="1" \
-      io.openshift.non-scalable="false"
