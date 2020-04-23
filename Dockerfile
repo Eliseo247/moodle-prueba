@@ -4,7 +4,7 @@ RUN yum -y install --disableplugin=subscription-manager \
   httpd24 rh-php72 rh-php72-php \
   && yum --disableplugin=subscription-manager clean all
 
-ADD index.php /opt/rh/httpd24/root/var/www/html
+#ADD index.php /opt/rh/httpd24/root/var/www/html
 
 RUN sed -i 's/Listen 80/Listen 8080/' \
   /opt/rh/httpd24/root/etc/httpd/conf/httpd.conf \
@@ -19,7 +19,7 @@ COPY run_wordpress.sh /
 COPY config.php /
 #COPY ssmtp /etc/ssmtp
 COPY php.ini /etc/opt/remi/php70/php.ini
-RUN rm -fr /run/httpd; ln -sf /tmp/run/httpd /run/httpd
+#UN rm -fr /run/httpd; ln -sf /tmp/run/httpd /run/httpd
 
 
 VOLUME /var/www/html
