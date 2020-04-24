@@ -2,7 +2,7 @@
 set -e
 
 mkdir /opt/app-root/moodledata
-chmod -R 777 /opt/app-root/moodledata
+chmod -R 775 /opt/app-root/moodledata
 
 
 
