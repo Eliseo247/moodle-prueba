@@ -2,8 +2,8 @@
 set -e
 
 mkdir /opt/app-root/moodledata
-chown -R apache:apache /opt/app-root/moodledata
-chmod -R 755 /opt/app-root/moodledata
+#chown -R apache:apache /opt/app-root/moodledata
+chmod -R 775 /opt/app-root/moodledata
 
 source ${PHP_CONTAINER_SCRIPTS_PATH}/common.sh
 
