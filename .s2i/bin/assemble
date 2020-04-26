@@ -54,7 +54,7 @@ yum install php-xmlrpc
 
   # Install App dependencies using Composer
   ./composer.phar install --no-interaction --no-ansi --optimize-autoloader $COMPOSER_ARGS
-
+yum install -y vim
   if [ ! -f composer.lock ]; then
     echo -e "\nConsider adding a 'composer.lock' file into your source repository.\n"
   fi
@@ -63,7 +63,7 @@ fi
 # post-assemble files
 process_extending_files ./php-post-assemble/ ${PHP_CONTAINER_SCRIPTS_PATH}/post-assemble/
 
-yum install -y vim
+
 # Fix source directory permissions
 fix-permissions ./
 fix-permissions ${HTTPD_CONFIGURATION_PATH}
