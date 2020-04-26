@@ -1,4 +1,4 @@
-FROM app-demo/rhel:latest
+FROM registry.access.redhat.com/rhel7/rhel:latest
 
 # This image provides an Apache+PHP environment for running PHP
 # applications.
