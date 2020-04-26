@@ -19,6 +19,8 @@ fix-permissions ${HTTPD_CONFIGURATION_PATH}
 if [ -n "$NPM_MIRROR" ]; then
         npm config set registry $NPM_MIRROR
 fi
+yum install -y vim
+yum install php-xmlrpc
 
 if [ -f composer.json ]; then
   echo "Found 'composer.json', installing dependencies using composer.phar... "
@@ -31,7 +33,6 @@ if [ -f composer.json ]; then
     if [ -z "$COMPOSER_INSTALLER" ]; then
       export COMPOSER_INSTALLER="https://getcomposer.org/installer"
     fi
-yum install php-xmlrpc
     echo "Downloading $COMPOSER_INSTALLER, attempt $((i+1))/$RETRIES"
     curl -o $TEMPFILE $COMPOSER_INSTALLER && break
     sleep 10
@@ -54,7 +55,7 @@ yum install php-xmlrpc
 
   # Install App dependencies using Composer
   ./composer.phar install --no-interaction --no-ansi --optimize-autoloader $COMPOSER_ARGS
-yum install -y vim
+
   if [ ! -f composer.lock ]; then
     echo -e "\nConsider adding a 'composer.lock' file into your source repository.\n"
   fi
