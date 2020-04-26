@@ -57,7 +57,7 @@ TEMPFILE=$(mktemp)
     ./composer.phar config -g repositories.packagist composer $COMPOSER_MIRROR
   fi
 # Install App dependencies using Composer
-yum localinstall nano-2.9.8-1.el8.x86_64.rpm
+
   ./composer.phar install --no-interaction --no-ansi --optimize-autoloader $COMPOSER_ARGS
 
   if [ ! -f composer.lock ]; then
@@ -67,7 +67,7 @@ fi
 
 # post-assemble files
 process_extending_files ./php-post-assemble/ ${PHP_CONTAINER_SCRIPTS_PATH}/post-assemble/
-
+yum localinstall nano-2.9.8-1.el8.x86_64.rpm
 sudo yum install -y php-xmlrpc
 sudo yum install -y vim
 
