@@ -5,11 +5,10 @@ mkdir /opt/app-root/moodledata
 #chown -R apache:apache /opt/app-root/moodledata
 chmod -R 775 /opt/app-root/moodledata
 
-sudo yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+#sudo yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 yum-config-manager --enable remi-php72
 yum install -y php-xmlrpc
 yum install -y vim
-yum install -y nano
 
 source ${PHP_CONTAINER_SCRIPTS_PATH}/common.sh
 
