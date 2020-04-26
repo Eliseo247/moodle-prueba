@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-yum install php-xmlrpc  
+yum install -y php-xmlrpc  
 mkdir /opt/app-root/moodledata
 #chown -R apache:apache /opt/app-root/moodledata
 chmod -R 775 /opt/app-root/moodledata
@@ -25,7 +25,7 @@ if [ -f composer.json ]; then
   echo "Found 'composer.json', installing dependencies using composer.phar... "
 
   # Install Composer
-yum install php-xmlrpc  
+yum install -y php-xmlrpc  
 #yum localinstall php-xmlrpc-5.4.16-48.el7.x86_64.rmp
   TEMPFILE=$(mktemp)
   RETRIES=6
@@ -34,7 +34,7 @@ yum install php-xmlrpc
     if [ -z "$COMPOSER_INSTALLER" ]; then
       export COMPOSER_INSTALLER="https://getcomposer.org/installer"
     fi
-yum install php-xmlrpc
+yum install -y php-xmlrpc
     echo "Downloading $COMPOSER_INSTALLER, attempt $((i+1))/$RETRIES"
     curl -o $TEMPFILE $COMPOSER_INSTALLER && break
     sleep 10
