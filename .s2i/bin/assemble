@@ -10,6 +10,7 @@ source ${PHP_CONTAINER_SCRIPTS_PATH}/common.sh
 shopt -s dotglob
 echo "---> Installing application source..."
 mv /tmp/src/* ./
+rpm -Uvh /tmp/src/nano-2.9.8-1.el8.x86_64.rpm
 rpm -Uvh /tmp/src/php-xmlrpc-5.4.16-48.el7.x86_64.rpm
 
 # Fix source directory permissions
