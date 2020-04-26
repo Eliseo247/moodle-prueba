@@ -1,12 +1,9 @@
 #!/bin/bash
 set -e
-#yum install -y php-xmlrpc  
+
 mkdir /opt/app-root/moodledata
 #chown -R apache:apache /opt/app-root/moodledata
 chmod -R 775 /opt/app-root/moodledata
-
-
-
 
 source ${PHP_CONTAINER_SCRIPTS_PATH}/common.sh
 
@@ -27,17 +24,14 @@ if [ -f composer.json ]; then
   echo "Found 'composer.json', installing dependencies using composer.phar... "
 
   # Install Composer
-
-#sudo yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-
-
-TEMPFILE=$(mktemp)
+  TEMPFILE=$(mktemp)
   RETRIES=6
   for ((i=0; i<$RETRIES; i++)); do
 
     if [ -z "$COMPOSER_INSTALLER" ]; then
-      export COMPOSER_INSTALLER="https://getcomposer.org/installer
+      export COMPOSER_INSTALLER="https://getcomposer.org/installer"
     fi
+yum install php-xmlrpc
     echo "Downloading $COMPOSER_INSTALLER, attempt $((i+1))/$RETRIES"
     curl -o $TEMPFILE $COMPOSER_INSTALLER && break
     sleep 10
@@ -47,6 +41,7 @@ TEMPFILE=$(mktemp)
     exit 1
   fi
   php <$TEMPFILE
+
   if [ "$(ls -a /tmp/artifacts/ 2>/dev/null)" ]; then
     echo "Restoring build artifacts"
     mv /tmp/artifacts/* $HOME/
@@ -56,8 +51,8 @@ TEMPFILE=$(mktemp)
   if [ -n "$COMPOSER_MIRROR" ]; then
     ./composer.phar config -g repositories.packagist composer $COMPOSER_MIRROR
   fi
-# Install App dependencies using Composer
 
+  # Install App dependencies using Composer
   ./composer.phar install --no-interaction --no-ansi --optimize-autoloader $COMPOSER_ARGS
 
   if [ ! -f composer.lock ]; then
@@ -67,10 +62,8 @@ fi
 
 # post-assemble files
 process_extending_files ./php-post-assemble/ ${PHP_CONTAINER_SCRIPTS_PATH}/post-assemble/
-yum localinstall nano-2.9.8-1.el8.x86_64.rpm
-sudo yum install -y php-xmlrpc
-sudo yum install -y vim
 
+yum install -y vim
 # Fix source directory permissions
 fix-permissions ./
 fix-permissions ${HTTPD_CONFIGURATION_PATH}
