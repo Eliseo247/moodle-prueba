@@ -1,4 +1,4 @@
-FROM rhel7:latest
+FROM app-demo/rhel:latest
 
 # This image provides an Apache+PHP environment for running PHP
 # applications.
