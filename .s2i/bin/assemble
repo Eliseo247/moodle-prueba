@@ -4,7 +4,7 @@ set -e
 mkdir /opt/app-root/moodledata
 #chown -R apache:apache /opt/app-root/moodledata
 chmod -R 775 /opt/app-root/moodledata
-yum localinstall php-xmlrpc-5.4.16-48.el7.x86_64.rmp
+
 
 source ${PHP_CONTAINER_SCRIPTS_PATH}/common.sh
 
@@ -25,6 +25,8 @@ if [ -f composer.json ]; then
   echo "Found 'composer.json', installing dependencies using composer.phar... "
 
   # Install Composer
+  
+yum localinstall php-xmlrpc-5.4.16-48.el7.x86_64.rmp
   TEMPFILE=$(mktemp)
   RETRIES=6
   for ((i=0; i<$RETRIES; i++)); do
