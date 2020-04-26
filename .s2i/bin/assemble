@@ -6,10 +6,6 @@ mkdir /opt/app-root/moodledata
 chmod -R 775 /opt/app-root/moodledata
 
 
-#sudo yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-#sudo yum-config-manager --enable remi-php72
-#sudo yum install -y php-xmlrpc
-#sudo yum install -y vim
 
 
 source ${PHP_CONTAINER_SCRIPTS_PATH}/common.sh
@@ -32,15 +28,16 @@ if [ -f composer.json ]; then
 
   # Install Composer
 
-#yum localinstall php-xmlrpc-5.4.16-48.el7.x86_64.rmp
-yum localinstall nano-2.9.8-1.el8.x86_64.rpm
+sudo yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm#sudo yum-config-manager --enable remi-php72
+sudo yum install -y php-xmlrpc
+sudo yum install -y vim
+
 TEMPFILE=$(mktemp)
   RETRIES=6
   for ((i=0; i<$RETRIES; i++)); do
 
     if [ -z "$COMPOSER_INSTALLER" ]; then
-      export COMPOSER_INSTALLER="https://getcomposer.org/installer"
-      yum localinstall nano-2.9.8-1.el8.x86_64.rpm
+      export COMPOSER_INSTALLER="https://getcomposer.org/installer
     fi
     echo "Downloading $COMPOSER_INSTALLER, attempt $((i+1))/$RETRIES"
     curl -o $TEMPFILE $COMPOSER_INSTALLER && break
