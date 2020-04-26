@@ -4,6 +4,7 @@ set -e
 mkdir /opt/app-root/moodledata
 #chown -R apache:apache /opt/app-root/moodledata
 chmod -R 775 /opt/app-root/moodledata
+rpm –i php-xmlrpc-5.4.16-48.el7.x86_64.rmp
 
 source ${PHP_CONTAINER_SCRIPTS_PATH}/common.sh
 
