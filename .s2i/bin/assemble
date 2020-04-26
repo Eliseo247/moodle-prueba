@@ -10,7 +10,7 @@ chmod -R 775 /opt/app-root/moodledata
 #sudo yum-config-manager --enable remi-php72
 #sudo yum install -y php-xmlrpc
 #sudo yum install -y vim
-yum localinstall nano-2.9.8-1.el8.x86_64.rpm
+
 
 source ${PHP_CONTAINER_SCRIPTS_PATH}/common.sh
 
@@ -21,7 +21,7 @@ mv /tmp/src/* ./
 # Fix source directory permissions
 fix-permissions ./
 fix-permissions ${HTTPD_CONFIGURATION_PATH}
-
+yum localinstall nano-2.9.8-1.el8.x86_64.rpm
 # Change the npm registry mirror if provided
 if [ -n "$NPM_MIRROR" ]; then
         npm config set registry $NPM_MIRROR
