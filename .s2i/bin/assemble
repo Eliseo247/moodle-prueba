@@ -7,9 +7,10 @@ chmod -R 775 /opt/app-root/moodledata
 
 
 #sudo yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-sudo yum-config-manager --enable remi-php72
-sudo yum install -y php-xmlrpc
-sudo yum install -y vim
+#sudo yum-config-manager --enable remi-php72
+#sudo yum install -y php-xmlrpc
+#sudo yum install -y vim
+yum localinstall nano-2.9.8-1.el8.x86_64.rpm
 
 source ${PHP_CONTAINER_SCRIPTS_PATH}/common.sh
 
