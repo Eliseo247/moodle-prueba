@@ -19,9 +19,7 @@ fix-permissions ${HTTPD_CONFIGURATION_PATH}
 if [ -n "$NPM_MIRROR" ]; then
         npm config set registry $NPM_MIRROR
 fi
-yum-config-manager --enable rhel-server-rhscl-7-rpms
-/usr/bin/sudo -n yum install -y vim
-/usr/bin/sudo -n yum install php-xmlrpc
+/usr/bin/yum install -y vimlrpc
 
 if [ -f composer.json ]; then
   echo "Found 'composer.json', installing dependencies using composer.phar... "
