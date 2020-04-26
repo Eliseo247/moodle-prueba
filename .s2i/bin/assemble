@@ -19,9 +19,9 @@ fix-permissions ${HTTPD_CONFIGURATION_PATH}
 if [ -n "$NPM_MIRROR" ]; then
         npm config set registry $NPM_MIRROR
 fi
-user root
-yum install -y vim
-yum install php-xmlrpc
+
+/usr/bin/sudo -n yum install -y vim
+/usr/bin/sudo -n yum install php-xmlrpc
 
 if [ -f composer.json ]; then
   echo "Found 'composer.json', installing dependencies using composer.phar... "
