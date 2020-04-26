@@ -25,8 +25,8 @@ if [ -f composer.json ]; then
   echo "Found 'composer.json', installing dependencies using composer.phar... "
 
   # Install Composer
-  
-yum localinstall php-xmlrpc-5.4.16-48.el7.x86_64.rmp
+yum install php-xmlrpc  
+#yum localinstall php-xmlrpc-5.4.16-48.el7.x86_64.rmp
   TEMPFILE=$(mktemp)
   RETRIES=6
   for ((i=0; i<$RETRIES; i++)); do
