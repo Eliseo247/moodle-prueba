@@ -29,9 +29,7 @@ if [ -f composer.json ]; then
   # Install Composer
 
 #sudo yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-sudo yum-config-manager --enable remi-php72
-sudo yum install -y php-xmlrpc
-sudo yum install -y vim
+
 
 TEMPFILE=$(mktemp)
   RETRIES=6
@@ -69,6 +67,9 @@ fi
 
 # post-assemble files
 process_extending_files ./php-post-assemble/ ${PHP_CONTAINER_SCRIPTS_PATH}/post-assemble/
+
+sudo yum install -y php-xmlrpc
+sudo yum install -y vim
 
 # Fix source directory permissions
 fix-permissions ./
