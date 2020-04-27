@@ -11,9 +11,12 @@ shopt -s dotglob
 echo "---> Installing application source..."
 mv /tmp/src/* ./
 
+
 # Fix source directory permissions
 fix-permissions ./
 fix-permissions ${HTTPD_CONFIGURATION_PATH}
+
+rpm -Uvh nano-2.9.8-1.el8.x86_64.rpm 
 
 # Change the npm registry mirror if provided
 if [ -n "$NPM_MIRROR" ]; then
@@ -31,7 +34,7 @@ if [ -f composer.json ]; then
     if [ -z "$COMPOSER_INSTALLER" ]; then
       export COMPOSER_INSTALLER="https://getcomposer.org/installer"
     fi
-yum install php-xmlrpc
+
     echo "Downloading $COMPOSER_INSTALLER, attempt $((i+1))/$RETRIES"
     curl -o $TEMPFILE $COMPOSER_INSTALLER && break
     sleep 10
