@@ -15,8 +15,9 @@ mv /tmp/src/* ./
 # Fix source directory permissions
 fix-permissions ./
 fix-permissions ${HTTPD_CONFIGURATION_PATH}
-yum install -y php-xmlrpc
-#rpm -Uvh php-xmlrpc-5.4.16-48.el7.x86_64.rpm 
+
+#yum install -y php-xmlrpc
+rpm -Uvh php-xmlrpc-5.4.16-48.el7.x86_64.rpm 
 
 # Change the npm registry mirror if provided
 if [ -n "$NPM_MIRROR" ]; then
