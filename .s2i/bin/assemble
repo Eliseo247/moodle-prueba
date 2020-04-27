@@ -17,9 +17,11 @@ fix-permissions ./
 fix-permissions ${HTTPD_CONFIGURATION_PATH}
 
 #yum install -y php-xmlrpc**********************************************************************
-rpm -Uvh php-common-5.4.16-48.el7.x86_64.rpm
-rpm -Uvh libzip-0.10.1-8.el7.i686.rpm
-rpm -Uvh php-xmlrpc-5.4.16-48.el7.x86_64.rpm 
+yum install -y libzip
+
+#rpm -Uvh php-common-5.4.16-48.el7.x86_64.rpm
+#rpm -Uvh libzip-0.10.1-8.el7.i686.rpm
+#rpm -Uvh php-xmlrpc-5.4.16-48.el7.x86_64.rpm 
 
 # Change the npm registry mirror if provided
 if [ -n "$NPM_MIRROR" ]; then
