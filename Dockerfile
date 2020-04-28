@@ -6,6 +6,7 @@ USER 0
 
 
 RUN yum -y install vim && yum clean all -y
+RUN yum -y install php-xmlrpc && yum clean all -y
 
 #ADD moodle.tar.gz /opt/app-root/src/
 
