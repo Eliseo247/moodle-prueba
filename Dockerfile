@@ -1,4 +1,4 @@
-FROM rhel7/rhel:latest
+FROM registry.access.redhat.com/rhel7/rhel:latest
 MAINTAINER Joeri van Dooren
 
 USER 0
