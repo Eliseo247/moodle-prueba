@@ -11,11 +11,14 @@ RUN yum -y install vim && yum clean all -y
 
 ADD http://wordpress.org/latest.tar.gz /opt/app-root/src/
 
-#RUN tar xvzf /opt/app-root/src/wordpress.tar.gz
+RUN tar xvzf /opt/app-root/src/latest.tar.gz
 
 RUN mkdir /opt/app-root/moodldata2
 RUN chgrp -R 0 /opt/app-root/moodldata2 && \
     chmod -R g+rwX /opt/app-root/moodldata2
+    
+RUN chgrp -R 0 /opt/app-root/src && \
+    chmod -R g+rwX /opt/app-root/src
     
 COPY run_wordpress.sh /
 VOLUME /opt/app-root/src
