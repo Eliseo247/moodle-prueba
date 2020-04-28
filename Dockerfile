@@ -23,10 +23,8 @@ RUN envsubst < ${HOME}/passwd.template > /tmp/passwd
 RUN export LD_PRELOAD=/usr/lib64/libnss_wrapper.so
 RUN export NSS_WRAPPER_PASSWD=/tmp/passwd
 RUN export NSS_WRAPPER_GROUP=/etc/group
-
-
 RUN yum -y install nss_wrapper gettext
 
-USER 1001
+USER root
 #EXPOSE 8080
 CMD ["/bin/bash", "/run_wordpress.sh"]
