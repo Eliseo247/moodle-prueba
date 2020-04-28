@@ -17,7 +17,7 @@ RUN mkdir /opt/app-root/moodldata2
 RUN chgrp -R 0 /opt/app-root/moodldata2 && \
     chmod -R g+rwX /opt/app-root/moodldata2
     
-
+COPY run_wordpress.sh /
 VOLUME /opt/app-root/src
 
 USER 997
