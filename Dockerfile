@@ -20,7 +20,7 @@ RUN chgrp -R 0 /opt/app-root/src && \
    chmod -R g+rwX /opt/app-root/src
     
 #RUN chgrp -R 0 /var/www/html && \
-    chmod -R g+rwX /var/www/html
+    #chmod -R g+rwX /var/www/html
     
 COPY run_wordpress.sh /
 #VOLUME /opt/app-root/src
