@@ -3,6 +3,8 @@ FROM ansp/php-73-rhel7:latest
 MAINTAINER Josue Ramirez
 USER 0
 
+
+
 RUN mkdir /opt/app-root/moodledata
 RUN chgrp -R 0 /opt/app-root/moodledata && \
    chmod -R g+rwX /opt/app-root/moodledata
@@ -10,7 +12,7 @@ RUN chgrp -R 0 /opt/app-root/moodledata && \
 RUN chgrp -R 0 /opt/app-root/src && \
    chmod -R g+rwX /opt/app-root/src
 
-   
+COPY php-xmlrpc-5.4.16-48.el7.x86_64.rpm /opt/app-root/src   
 COPY passwd.template /opt/app-root/src
 COPY run_wordpress.sh /
 VOLUME /opt/app-root/src
