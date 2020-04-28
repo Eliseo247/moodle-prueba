@@ -2,8 +2,6 @@ FROM ansp/php-73-rhel7:latest
 MAINTAINER Joeri van Dooren
 
 USER 0
-ADD https://rpms.remirepo.net/enterprise/7/remi/x86_64/php73-php-xmlrpc-7.3.17-1.el7.remi.x86_64.rpm /
-RUN rpm -Uvh /php73-php-xmlrpc-7.3.17-1.el7.remi.x86_64.rpm
 
 #ADD http://rpms.remirepo.net/enterprise/7/remi/x86_64/ /
 #RUN rpm -Uvh /remi-release*rpm
@@ -11,7 +9,7 @@ RUN rpm -Uvh /php73-php-xmlrpc-7.3.17-1.el7.remi.x86_64.rpm
 
 #rm -rf /var/cache/yum/*
 
-#RUN yum -y install php-xmlrpc && yum clean all -y
+RUN yum -y install httpd && yum clean all -y
 
 #ADD moodle.tar.gz /opt/app-root/src/
 
