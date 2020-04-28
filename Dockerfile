@@ -22,7 +22,7 @@ VOLUME /opt/app-root/src
 
 USER 997
 EXPOSE 8080
-CMD ["httpd-foreground"]
+CMD ["/bin/sh","httpd -D foreground"]
 #RUN exec httpd -D FOREGROUND
 
 # Set labels used in OpenShift to describe the builder images
