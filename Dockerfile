@@ -22,7 +22,8 @@ VOLUME /opt/app-root/src
 
 USER 997
 EXPOSE 8080
-RUN exec httpd -D FOREGROUND
+CMD ["httpd-foreground"]
+#RUN exec httpd -D FOREGROUND
 
 # Set labels used in OpenShift to describe the builder images
 LABEL io.k8s.description="Wordpress" \
