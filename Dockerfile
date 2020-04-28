@@ -1,7 +1,7 @@
 FROM ansp/php-73-rhel7:latest
 MAINTAINER Joeri van Dooren
 
-#USER 0
+USER 0
 
 #RUN yum -y install vim && yum clean all -y
 
@@ -22,7 +22,7 @@ MAINTAINER Joeri van Dooren
 
 #USER 997
 #EXPOSE 8080
-USER root
+
 CMD ["/bin/bash", "httpd", "-D", "FOREGROUND"]
 #RUN exec httpd -D FOREGROUND
 
