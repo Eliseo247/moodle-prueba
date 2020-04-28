@@ -1,4 +1,4 @@
-FROM ansp/php-73-rhel7:latest
+FROM rhel7/rhel:latest
 MAINTAINER Joeri van Dooren
 
 USER 0
@@ -10,6 +10,7 @@ USER 0
 #rm -rf /var/cache/yum/*
 
 RUN yum -y install httpd24-httpd
+RUN yum -y install rh-php70
 
 #ADD moodle.tar.gz /opt/app-root/src/
 
