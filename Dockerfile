@@ -22,7 +22,7 @@ RUN yum -y install vim && yum clean all -y
 
 #USER 997
 #EXPOSE 8080
-CMD ["/bin/bash", "httpd -D FOREGROUND"]
+CMD ["/bin/bash", "httpd", "-D", "FOREGROUND"]
 #RUN exec httpd -D FOREGROUND
 
 # Set labels used in OpenShift to describe the builder images
