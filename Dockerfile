@@ -9,7 +9,7 @@ USER 0
 
 #rm -rf /var/cache/yum/*
 
-RUN yum -y install httpd && yum clean all -y
+RUN yum -y install httpd24-httpd
 
 #ADD moodle.tar.gz /opt/app-root/src/
 
