@@ -4,6 +4,9 @@ MAINTAINER Joeri van Dooren
 USER 0
 
 
+RUN subscription-manager repos --enable rhel-7-server-extras-rpms
+RUN subscription-manager repos --enable rhel-7-server-optional-rpms
+RUN subscription-manager repos --enable rhel-server-rhscl-7-rpms
 
 RUN yum -y php-xmlrpc.x86_64 && yum clean all -y
 #RUN yum -y install php-xmlrpc && yum clean all -y
