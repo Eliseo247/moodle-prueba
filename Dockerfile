@@ -9,7 +9,7 @@ yum-config-manager --enable rhel-7-server-optional-rpms && \
 yum-config-manager --enable rhel-server-rhscl-7-rpms && \
 yum makecache && \
 yum php-xmlrpc.x86_64 -y && \
-yum clean all && \
+yum clean all
 #rm -rf /var/cache/yum/*
 
 #RUN yum -y install php-xmlrpc && yum clean all -y
