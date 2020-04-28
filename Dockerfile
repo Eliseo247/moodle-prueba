@@ -12,10 +12,10 @@ RUN yum -y install vim && yum clean all -y
 #RUN mkdir /opt/app-root/moodldata2
 
 #RUN chgrp -R 0 /opt/app-root/src && \
-    chmod -R g+rwX /opt/app-root/src
+   # chmod -R g+rwX /opt/app-root/src
     
 #RUN chgrp -R 0 /var/www/html && \
-    chmod -R g+rwX /var/www/html
+    #chmod -R g+rwX /var/www/html
     
 #COPY run_wordpress.sh /
 #VOLUME /opt/app-root/src
