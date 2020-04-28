@@ -1,22 +1,13 @@
-FROM registry.access.redhat.com/rhel7/rhel:latest
+#FROM registry.access.redhat.com/rhel7/rhel:latest
+FROM ansp/php-73-rhel7:latest
 MAINTAINER Joeri van Dooren
 
 USER 0
 
-#ADD http://rpms.remirepo.net/enterprise/7/remi/x86_64/ /
-#RUN rpm -Uvh /remi-release*rpm
-#RUN yum --enablerepo=remi install php73-php-xmlrpc
-
-#rm -rf /var/cache/yum/*
-RUN subscription-manager attach --pool=8a85f98c635f699f016374b1eabb0c06
-RUN subscription-manager repos --enable=rhel-server-rhscl-7-rpms 
-
-RUN yum -y install httpd24-httpd
-RUN yum -y install rh-php70
-
-#ADD moodle.tar.gz /opt/app-root/src/
-
-#RUN tar xvzf /opt/app-root/src/moodle.tar.gz
+#RUN subscription-manager attach --pool=8a85f98c635f699f016374b1eabb0c06
+#RUN subscription-manager repos --enable=rhel-server-rhscl-7-rpms 
+#RUN yum -y install httpd24-httpd
+#RUN yum -y install rh-php70
 
 RUN mkdir /opt/app-root/moodldata
 RUN chgrp -R 0 /opt/app-root/moodldata && \
