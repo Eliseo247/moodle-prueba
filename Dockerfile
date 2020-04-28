@@ -3,7 +3,7 @@ FROM ansp/php-73-rhel7:latest
 MAINTAINER Josue Ramirez
 USER 0
 
-
+VOLUME /opt/app-root/src
 
 RUN mkdir /opt/app-root/moodledata
 RUN chgrp -R 0 /opt/app-root/moodledata && \
@@ -15,7 +15,7 @@ RUN chgrp -R 0 /opt/app-root/src && \
 COPY php-xmlrpc-5.4.16-48.el7.x86_64.rpm /opt/app-root/src   
 COPY passwd.template /opt/app-root/src
 COPY run_wordpress.sh /
-VOLUME /opt/app-root/src
+
 
 RUN export USER_ID=$(id -u)
 RUN export GROUP_ID=$(id -g)
