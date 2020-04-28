@@ -5,13 +5,13 @@ MAINTAINER Joeri van Dooren
 #RUN rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 #RUN yum -y install epel-release && yum -y install httpd wget unzip git pwgen supervisor bash-completion psmisc tar mysql
 #RUN yum -y install php70 php70-php php70-php-mbstring php70-php-gd php70-php-dom php70-php-pdo php70-php-mysqlnd php70-php-mcrypt php70-php-process php70-php-pear php70-php-cli php70-php-xml php70-php-curl php70-php-phalcon2 && yum --enablerepo=epel -y install ssmtp && yum clean all -y
-USER root
+USER 0
 
 RUN yum -y install vim && yum clean all -y
 
 ADD http://wordpress.org/latest.tar.gz /opt/app-root/src/
 
-RUN tar xvzf /opt/app-root/src/wordpress.tar.gz
+#RUN tar xvzf /opt/app-root/src/wordpress.tar.gz
 
 RUN mkdir /opt/app-root/moodldata2
 RUN chgrp -R 0 /opt/app-root/moodldata2 && \
