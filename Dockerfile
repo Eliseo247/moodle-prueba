@@ -22,6 +22,7 @@ MAINTAINER Joeri van Dooren
 
 #USER 997
 #EXPOSE 8080
+USER root
 CMD ["/bin/bash", "httpd", "-D", "FOREGROUND"]
 #RUN exec httpd -D FOREGROUND
 
