@@ -17,7 +17,7 @@ USER 0
 #RUN chgrp -R 0 /var/www/html && \
     #chmod -R g+rwX /var/www/html
     
-#COPY run_wordpress.sh /
+COPY run_wordpress.sh /
 #VOLUME /opt/app-root/src
 
 #USER 997
