@@ -2,9 +2,10 @@
 FROM ansp/php-73-rhel7:latest
 MAINTAINER Josue Ramirez
 USER 0
+
 RUN mkdir /opt/app-root/moodledata
-RUN chgrp -R 0 /opt/app-root/moodldata && \
-   chmod -R g+rwX /opt/app-root/moodldata
+RUN chgrp -R 0 /opt/app-root/moodledata && \
+   chmod -R g+rwX /opt/app-root/moodledata
 COPY run_wordpress.sh /
 VOLUME /opt/app-root/src
 
