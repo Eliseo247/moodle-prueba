@@ -3,18 +3,23 @@ MAINTAINER Joeri van Dooren
 
 USER 0
 
+
+
 RUN yum -y install vim && yum clean all -y
 
-ADD http://wordpress.org/latest.tar.gz /opt/app-root/src/
+#ADD moodle.tar.gz /opt/app-root/src/
 
-RUN tar xvzf /opt/app-root/src/latest.tar.gz
+#RUN tar xvzf /opt/app-root/src/moodle.tar.gz
 
-#RUN mkdir /opt/app-root/moodldata2
+RUN mkdir /opt/app-root/moodldata
+RUN chgrp -R 0 /opt/app-root/moodldata && \
+   chmod -R g+rwX /opt/app-root/moodldata
+
 
 RUN chgrp -R 0 /opt/app-root/src && \
    chmod -R g+rwX /opt/app-root/src
     
-RUN chgrp -R 0 /var/www/html && \
+#RUN chgrp -R 0 /var/www/html && \
     chmod -R g+rwX /var/www/html
     
 COPY run_wordpress.sh /
