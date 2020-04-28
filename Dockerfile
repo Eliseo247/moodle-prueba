@@ -1,9 +1,9 @@
 FROM ansp/php-73-rhel7:latest
 MAINTAINER Joeri van Dooren
 
-USER 0
+#USER 0
 
-RUN yum -y install vim && yum clean all -y
+#RUN yum -y install vim && yum clean all -y
 
 #ADD http://wordpress.org/latest.tar.gz /opt/app-root/src/
 
