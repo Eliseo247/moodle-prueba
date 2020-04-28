@@ -21,7 +21,7 @@ VOLUME /opt/app-root/src
 
 USER 997
 EXPOSE 8080
-CMD ["/bin/sh", "/run_wordpress.sh"]
+RUN exec httpd -D FOREGROUND
 
 # Set labels used in OpenShift to describe the builder images
 LABEL io.k8s.description="Wordpress" \
