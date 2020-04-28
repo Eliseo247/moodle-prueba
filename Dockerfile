@@ -14,8 +14,9 @@ ADD http://wordpress.org/latest.tar.gz /opt/app-root/src/
 RUN tar xvzf /opt/app-root/src/latest.tar.gz
 
 RUN mkdir /opt/app-root/moodldata2
-RUN chgrp -R 0 /opt/app-root/moodldata2 && \
-    chmod -R g+rwX /opt/app-root/moodldata2
+
+RUN chgrp -R 0 /opt/app-root/src && \
+    chmod -R g+rwX /opt/app-root/src
     
 RUN chgrp -R 0 /var/www/html && \
     chmod -R g+rwX /var/www/html
