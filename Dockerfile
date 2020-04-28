@@ -3,13 +3,10 @@ MAINTAINER Joeri van Dooren
 
 USER 0
 
-RUN yum repolist all && \ 
-yum-config-manager --enable rhel-7-server-extras-rpms && \
-yum-config-manager --enable rhel-7-server-optional-rpms && \
-yum-config-manager --enable rhel-server-rhscl-7-rpms && \
-yum makecache && \
-yum php-xmlrpc.x86_64 -y && \
-yum clean all
+ADD http://rpms.remirepo.net/enterprise/7/remi/x86_64/ /
+RUN rpm -Uvh /remi-release*rpm
+RUN yum --enablerepo=remi install php73-php-xmlrpc
+
 #rm -rf /var/cache/yum/*
 
 #RUN yum -y install php-xmlrpc && yum clean all -y
