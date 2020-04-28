@@ -7,7 +7,7 @@ USER 0
 #RUN subscription-manager attach --pool=8a85f98c635f699f016374b1eabb0c06
 #RUN subscription-manager repos --enable=rhel-server-rhscl-7-rpms 
 #RUN yum -y install httpd24-httpd
-RUN yum -y install php-xmlrpc
+RUN yum -y install php-xmlrpc-c
 
 RUN mkdir /opt/app-root/moodldata
 RUN chgrp -R 0 /opt/app-root/moodldata && \
