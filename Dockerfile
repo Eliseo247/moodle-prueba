@@ -3,7 +3,7 @@ FROM ansp/php-73-rhel7:latest
 MAINTAINER Josue Ramirez
 USER 0
 
-VOLUME /opt/app-root/src
+
 
 RUN mkdir /opt/app-root/moodledata
 RUN chgrp -R 0 /opt/app-root/moodledata && \
@@ -26,5 +26,7 @@ RUN export NSS_WRAPPER_GROUP=/etc/group
 RUN yum -y install nss_wrapper gettext
 
 USER root
-#EXPOSE 8080
+
+EXPOSE 8080
+VOLUME /opt/app-root/src
 CMD ["/bin/bash", "/run_wordpress.sh"]
