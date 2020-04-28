@@ -3,11 +3,11 @@ MAINTAINER Joeri van Dooren
 
 USER 0
 
-#RUN yum -y install vim && yum clean all -y
+RUN yum -y install vim && yum clean all -y
 
-#ADD http://wordpress.org/latest.tar.gz /opt/app-root/src/
+ADD http://wordpress.org/latest.tar.gz /opt/app-root/src/
 
-#RUN tar xvzf /opt/app-root/src/latest.tar.gz
+RUN tar xvzf /opt/app-root/src/latest.tar.gz
 
 #RUN mkdir /opt/app-root/moodldata2
 
