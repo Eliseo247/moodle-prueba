@@ -3,10 +3,10 @@ FROM php-73-rhel7:latest
 MAINTAINER Joeri van Dooren
 COPY run_wordpress.sh /
 VOLUME /opt/app-root/src
-
-ADD http://wordpress.org/latest.tar.gz /opt/app-root/src/wordpress.tar.gz
-RUN tar xvzf /opt/app-root/src//wordpress.tar.gz
-
+ 
+ADD http://wordpress.org/latest.tar.gz /wordpress.tar.gz
+RUN tar -xfv /wordpress.tar.gz
+RUN mv /wordpress /opt/app-root/src
 
 USER 997
 EXPOSE 8080
