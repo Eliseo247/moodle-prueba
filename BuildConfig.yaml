@@ -23,7 +23,7 @@ items:
       dockerStrategy:
         from:
           kind: ImageStreamTag
-          name: ansp/php-73-rhel7:latest
+          name: php-73-rhel7:latest
       type: Docker
   status:
     lastVersion: 0
