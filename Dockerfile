@@ -5,7 +5,7 @@ COPY run_wordpress.sh /
 VOLUME /opt/app-root/src
  
 ADD http://wordpress.org/latest.tar.gz /wordpress.tar.gz
-RUN tar -xfv /wordpress.tar.gz
+RUN tar -xfv /latest.tar.gz
 RUN mv /wordpress /opt/app-root/src
 
 USER 997
