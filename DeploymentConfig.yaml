@@ -5,13 +5,13 @@ metadata:
     openshift.io/generated-by: OpenShiftNewApp
   creationTimestamp: null
   labels:
-    app: openshift-wordpress
-  name: openshift-wordpress
+    app: www-ansp-edu-sv
+  name: www-ansp-edu-sv
 spec:
   replicas: 1
   selector:
-    app: openshift-wordpress
-    deploymentconfig: openshift-wordpress
+    app: www-ansp-edu-sv
+    deploymentconfig: www-ansp-edu-sv
   strategy:
     resources: {}
     rollingParams:
@@ -27,29 +27,29 @@ spec:
         openshift.io/generated-by: OpenShiftNewApp
       creationTimestamp: null
       labels:
-        app: openshift-wordpress
-        deploymentconfig: openshift-wordpress
+        app: www-ansp-edu-sv
+        deploymentconfig: www-ansp-edu-sv
     spec:
       output:
         to:
           kind: ImageStreamTag
-          name: openshift-wordpress:latest
+          name: www-ansp-edu-sv:latest
       resources: {}
       source:
         git:
           ref: master
-          uri: https://github.com/Eliseo247/openshift-wordpress.git
+          uri: https://github.com/Eliseo247/www-ansp-edu-sv.git
         type: Git
       strategy:
         dockerStrategy:
           from:
             kind: ImageStreamTag
-            name: ansp/php-73-rhel7:latest
+            name: php-73-rhel7:latest
         type: Docker
       containers:
-      - image: openshift-wordpress
+      - image: www-ansp-edu-sv
         imagePullPolicy: Always
-        name: openshift-wordpress
+        name: www-ansp-edu-sv
         ports:
         - containerPort: 8080
           protocol: TCP
@@ -71,9 +71,9 @@ spec:
   - imageChangeParams:
       automatic: true
       containerNames:
-      - openshift-wordpress
+      - www-ansp-edu-sv
       from:
         kind: ImageStreamTag
-        name: openshift-wordpress:latest
+        name: www-ansp-edu-sv:latest
     type: ImageChange
 status: {}
