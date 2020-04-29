@@ -2,9 +2,11 @@
 FROM php-73-rhel7:latest  
 MAINTAINER Eliseo RAMIREZ
 USER root
-ADD https://download.moodle.org/stable38/moodle-latest-38.tgz /tmp
+ADD https://download.moodle.org/stable38/moodle-latest-38.tgz /
+RUN chmod a+rw /moodle-latest-38.tgz
 
-RUN tar xvzf /tmp/moodle-latest-38.tgz 
+RUN tar xvzf /moodle-latest-38.tgz 
+RUN chmod a+rw /moodle
 
 COPY run_moodle.sh /
 
