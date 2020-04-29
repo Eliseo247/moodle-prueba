@@ -11,7 +11,7 @@ COPY run_moodle.sh /
 
 RUN mkdir /opt/app-root/moodledata
 RUN chmod 775 /opt/app-root/moodledata
-RUN chmod 775 /opt/app-roo/src
+RUN chmod 775 /opt/app-root/src
 
 VOLUME /opt/app-root/src
 
