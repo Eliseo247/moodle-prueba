@@ -1,11 +1,11 @@
  
 FROM php-73-rhel7:latest  
-MAINTAINER Joeri van Dooren
+MAINTAINER f
 COPY run_wordpress.sh /
 COPY index.php  /opt/app-root/src/
 COPY index.php  /
 VOLUME /opt/app-root/src
- 
+
 
 
 
