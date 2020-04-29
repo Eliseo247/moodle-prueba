@@ -44,7 +44,7 @@ spec:
         dockerStrategy:
           from:
             kind: ImageStreamTag
-            name: centos:7
+            name: ansp/php-73-rhel7:latest
         type: Docker
       containers:
       - image: openshift-wordpress
