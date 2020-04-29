@@ -10,7 +10,7 @@ RUN chmod a+rw /moodle-latest-38.tgz
 COPY run_moodle.sh /
 
 RUN mkdir /opt/app-root/moodledata
-RUN chmod a+rw /opt/app-root/moodledata
+RUN chmod 775 /opt/app-root/moodledata
 
 VOLUME /opt/app-root/src
 
