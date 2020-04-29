@@ -38,7 +38,7 @@ spec:
       source:
         git:
           ref: master
-          uri: https://github.com/ure/openshift-wordpress.git
+          uri: https://github.com/Eliseo247/openshift-wordpress.git
         type: Git
       strategy:
         dockerStrategy:
