@@ -4,7 +4,6 @@ MAINTAINER Eliseo RAMIREZ
 
 ADD https://download.moodle.org/stable38/moodle-latest-38.tgz /
 RUN tar -xvf /moodle-latest-38.tgz
-COPY /moodle /opt/app-root/src/
 
 COPY run_moodle.sh /
 
