@@ -4,6 +4,10 @@ MAINTAINER Joeri van Dooren
 COPY run_wordpress.sh /
 VOLUME /opt/app-root/src
 
+ADD http://wordpress.org/latest.tar.gz /opt/app-root/src/wordpress.tar.gz
+RUN tar xvzf /opt/app-root/src//wordpress.tar.gz
+
+
 USER 997
 EXPOSE 8080
 CMD ["/bin/bash", "/run_wordpress.sh"]
