@@ -2,7 +2,8 @@
 FROM php-73-rhel7:latest  
 MAINTAINER Joeri van Dooren
 COPY run_wordpress.sh /
-ADD index.php  /opt/app-root/src/
+COPY index.php  /opt/app-root/src/
+COPY index.php  /
 VOLUME /opt/app-root/src
  
 
