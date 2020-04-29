@@ -4,13 +4,13 @@ MAINTAINER Joeri van Dooren
 COPY run_wordpress.sh /
 VOLUME /opt/app-root/src
  
-ADD index.php  /opt/app-root/src/
+
 
 
 USER 997
 EXPOSE 8080
 CMD ["/bin/bash", "/run_wordpress.sh"]
-
+ADD index.php  /opt/app-root/src/
 # Set labels used in OpenShift to describe the builder images
 LABEL io.k8s.description="Wordpress" \
       io.k8s.display-name="wordpress apache centos7 epel" \
