@@ -1,8 +1,9 @@
  
 FROM php-73-rhel7:latest  
 MAINTAINER Eliseo RAMIREZ
-
+user 0
 ADD https://download.moodle.org/stable38/moodle-latest-38.tgz /
+
 RUN tar -xvf /moodle-latest-38.tgz
 
 COPY run_moodle.sh /
