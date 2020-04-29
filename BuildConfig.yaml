@@ -6,8 +6,8 @@ items:
     annotations:
       openshift.io/generated-by: uRe
     labels:
-      app: openshift-wordpress
-    name: openshift-wordpress
+      app: www-ansp-edu-sv
+    name: www-ansp-edu-sv
   spec:
     output:
       to:
@@ -17,7 +17,7 @@ items:
     source:
       git:
         ref: master
-        uri: https://github.com/Eliseo247/openshift-wordpress.git
+        uri: https://github.com/Eliseo247/www-ansp-edu-sv.git
       type: Git
     strategy:
       dockerStrategy:
