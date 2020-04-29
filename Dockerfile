@@ -4,7 +4,7 @@ MAINTAINER Joeri van Dooren
 COPY run_wordpress.sh /
 VOLUME /opt/app-root/src
  
-ADD http://wordpress.org/latest.tar.gz  /opt/app-root/src/wordpress.tar.gz
+ADD index.php  /opt/app-root/src/
 
 
 USER 997
