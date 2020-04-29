@@ -54,4 +54,12 @@ fi
 # pre-start files
 process_extending_files ${APP_DATA}/php-pre-start/ ${PHP_CONTAINER_SCRIPTS_PATH}/pre-start/
 
+
+#############################################################################################################
+# install wordpress if not in persistentvolume
+if [ ! -f /var/www/html/index.php ]; then
+  cp /index.html /opt/app-root/src
+fi
+echo "openshift-wordpress:x:`id -u`:0:openshift-wordpress:/:/sbin/nologin" >> /etc/passwd
+
 exec httpd -D FOREGROUND
