@@ -56,7 +56,7 @@ spec:
         resources: {}
         terminationMessagePath: /dev/termination-log
         volumeMounts:
-        - mountPath: /var/www/html
+        - mountPath: /opt/app-root/src
           name: wordpress-data
       dnsPolicy: ClusterFirst
       restartPolicy: Always
