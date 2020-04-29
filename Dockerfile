@@ -1,7 +1,7 @@
  
 FROM php-73-rhel7:latest  
 MAINTAINER Eliseo RAMIREZ
-user 0
+USER root
 ADD https://download.moodle.org/stable38/moodle-latest-38.tgz /tmp
 
 RUN tar xvzf /tmp/moodle-latest-38.tgz 
@@ -10,7 +10,7 @@ COPY run_moodle.sh /
 
 VOLUME /opt/app-root/src
 
-USER 997
+USER 1001
 EXPOSE 8080
 CMD ["/bin/bash", "/run_moodle.sh"]
 
