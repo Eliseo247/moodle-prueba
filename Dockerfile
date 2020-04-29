@@ -5,8 +5,8 @@ USER root
 ADD https://download.moodle.org/stable38/moodle-latest-38.tgz /
 RUN chmod a+rw /moodle-latest-38.tgz
 
-RUN tar xvzf /moodle-latest-38.tgz /moodle
-RUN chmod a+rw /moodle
+
+RUN chmod a+rw /moodle-latest-38.tgz
 
 COPY run_moodle.sh /
 
