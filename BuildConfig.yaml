@@ -1,0 +1,31 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: BuildConfig
+  metadata:
+    annotations:
+      openshift.io/generated-by: uRe
+    labels:
+      app: openshift-wordpress
+    name: openshift-wordpress
+  spec:
+    output:
+      to:
+        kind: ImageStreamTag
+        name: openshift-wordpress:latest
+    resources: {}
+    source:
+      git:
+        ref: master
+        uri: https://github.com/ure/openshift-wordpress.git
+      type: Git
+    strategy:
+      dockerStrategy:
+        from:
+          kind: ImageStreamTag
+          name: centos:7
+      type: Docker
+  status:
+    lastVersion: 0
+kind: List
+metadata: {}
