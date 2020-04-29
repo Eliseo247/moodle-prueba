@@ -1,5 +1,5 @@
  
-FROM ansp/php-73-rhel7:latest  
+FROM php-73-rhel7:latest  
 MAINTAINER Joeri van Dooren
 COPY run_wordpress.sh /
 VOLUME /opt/app-root/src
