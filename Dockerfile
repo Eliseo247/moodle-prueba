@@ -9,6 +9,7 @@ RUN mkdir /opt/app-root/moodledata
 RUN chmod 775 /opt/app-root/moodledata
 RUN chmod 775 /opt/app-root/src
 
+ADD runcron /usr/local/bin/runcron  && chmod u+x runcron
 
 ADD php.ini /opt/app-root/etc/php.ini
 COPY run_moodle.sh /
