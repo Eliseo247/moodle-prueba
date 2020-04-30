@@ -9,7 +9,7 @@ RUN mkdir /opt/app-root/moodledata
 RUN chmod 775 /opt/app-root/moodledata
 RUN chmod 775 /opt/app-root/src
 
-ADD php.ini /
+ADD php.ini /opt/app-root/etc/php.ini.template
 COPY run_moodle.sh /
 
 VOLUME /opt/app-root/moodledata
