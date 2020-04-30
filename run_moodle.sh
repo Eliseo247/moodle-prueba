@@ -30,7 +30,7 @@ export OPCACHE_REVALIDATE_FREQ=${OPCACHE_REVALIDATE_FREQ:-2}
 export PHPRC=${PHPRC:-${PHP_SYSCONF_PATH}/php.ini}
 export PHP_INI_SCAN_DIR=${PHP_INI_SCAN_DIR:-${PHP_SYSCONF_PATH}/php.d}
 
-envsubst < /php.ini > ${PHP_SYSCONF_PATH}/php.ini
+envsubst <  /opt/app-root/etc/php.ini.template > ${PHP_SYSCONF_PATH}/php.ini
 envsubst < /opt/app-root/etc/php.d/10-opcache.ini.template > ${PHP_SYSCONF_PATH}/php.d/10-opcache.ini
 
 export HTTPD_START_SERVERS=${HTTPD_START_SERVERS:-8}
