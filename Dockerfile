@@ -13,6 +13,8 @@ RUN mkdir /opt/app-root/moodledata
 RUN chmod 775 /opt/app-root/moodledata
 RUN chmod 775 /opt/app-root/src
 
+COPY php.ini /etc/opt/rh/rh-php73/php.ini
+
 VOLUME /opt/app-root/moodledata
 
 USER 1001
