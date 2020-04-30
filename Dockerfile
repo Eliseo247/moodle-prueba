@@ -5,15 +5,12 @@ USER root
 ADD https://download.moodle.org/stable38/moodle-latest-38.tgz /
 RUN chmod a+rw /moodle-latest-38.tgz
 
-
-RUN chmod a+rw /moodle-latest-38.tgz
-COPY run_moodle.sh /
-
 RUN mkdir /opt/app-root/moodledata
 RUN chmod 775 /opt/app-root/moodledata
 RUN chmod 775 /opt/app-root/src
 
 ADD php.ini /etc/opt/rh/rh-php73/php.ini
+COPY run_moodle.sh /
 
 VOLUME /opt/app-root/moodledata
 
