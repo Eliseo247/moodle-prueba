@@ -35,7 +35,7 @@ RUN chmod a+rw /etc/passwd
 VOLUME /opt/app-root/moodledata
 
 #/opt/app-root/src/admin/cli/cron.php
-USER 997
+#USER 997
 #USER 1001
 EXPOSE 8080
 #CMD ["cron", "-f"]
