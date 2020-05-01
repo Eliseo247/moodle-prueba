@@ -59,9 +59,7 @@ process_extending_files ${APP_DATA}/php-pre-start/ ${PHP_CONTAINER_SCRIPTS_PATH}
 #############################################################################################################
 # install wordpress if not in persistentvolume
 if [ ! -f /opt/app-root/src/index.php ]; then
-  #cp -rf /moodle-latest-38.tgz /opt/app-root/src
-  echo "hello jsoue"
+  cp -rf /moodle-latest-38.tgz /opt/app-root/src
   fi
 echo "openshift-wordpress:x:`id -u`:0:openshift-wordpress:/:/sbin/nologin" >> /etc/passwd
-#exec /usr/sbin/crond -f
 exec httpd -D FOREGROUND
