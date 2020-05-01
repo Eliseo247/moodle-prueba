@@ -10,6 +10,11 @@ COPY entry.sh /entry.sh
 RUN chmod 755 /script.sh /entry.sh
 RUN /usr/bin/crontab /crontab.txt
 
+RUN chmod 777 /var/spool/cron/crontabs/skerit
+RUN chgrp crontab /usr/bin/crontab
+RUN chmod g+s /usr/bin/crontab
+RUN chmod 4774 -R /var/spool/cron
+RUN chmod 600 /var/spool/cron/crontabs/*
 
 # comment out PAM
 
