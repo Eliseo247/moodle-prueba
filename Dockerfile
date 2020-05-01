@@ -4,7 +4,11 @@ MAINTAINER Eliseo RAMIREZ
 USER root
 
 RUN yum install -y cronie && yum clean all
-RUN crontab -l | { cat; echo "* * * * * root php  /opt/app-root/src/admin/cli/cron.php "; } | crontab -
+ADD crontab.txt /crontab.txt
+ADD script.sh /script.sh
+COPY entry.sh /entry.sh
+RUN chmod 755 /script.sh /entry.sh
+RUN /usr/bin/crontab /crontab.txt
 
 
 # comment out PAM
@@ -36,14 +40,16 @@ VOLUME /opt/app-root/moodledata
 
 #/opt/app-root/src/admin/cli/cron.php
 #USER 997
-#USER 1001
+USER 1001
 EXPOSE 8080
 #CMD ["cron", "-f"]
 # Run the command on container startup
 #CMD cron && tail -f /var/log/cron.log
 
-CMD ["/usr/sbin/init"]
+#CMD ["/usr/sbin/init"]
 CMD ["/bin/bash","/run_moodle.sh"]
+
+CMD ["/entry.sh"]
 
 # Set labels used in OpenShift to describe the builder images
 LABEL io.k8s.description="Wordpress" \
