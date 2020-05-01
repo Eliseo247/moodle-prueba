@@ -3,13 +3,13 @@ FROM php-73-rhel7:latest
 MAINTAINER Eliseo RAMIREZ
 USER root
 RUN yum -y install cronie 
-#&&  crontab -u root -e && * * * * * /usr/bin/php /opt/app-root/src/moodle/admin/cli/cron.php>/dev/null
+
 ADD crontab /etc/
 ADD 0hourly /etc/cron.d/
 ADD my-script.sh /usr/local/bin/
 
-ADD https://download.moodle.org/stable38/moodle-latest-38.tgz /
-RUN chmod a+rw /moodle-latest-38.tgz
+#ADD https://download.moodle.org/stable38/moodle-latest-38.tgz /
+#RUN chmod a+rw /moodle-latest-38.tgz
 
 RUN mkdir /opt/app-root/moodledata
 RUN chmod 775 /opt/app-root/moodledata
