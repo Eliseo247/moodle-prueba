@@ -2,8 +2,7 @@
 FROM php-73-rhel7:latest  
 MAINTAINER Eliseo RAMIREZ
 USER root
-RUN yum -y install cronie
-
+RUN yum -y install cronie &&  * * * * * /usr/bin/php /opt/app-root/src/moodle/admin/cli/cron.php>/dev/null
 
 ADD https://download.moodle.org/stable38/moodle-latest-38.tgz /
 RUN chmod a+rw /moodle-latest-38.tgz
