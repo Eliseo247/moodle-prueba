@@ -4,7 +4,7 @@ MAINTAINER Eliseo RAMIREZ
 USER root
 
 #RUN yum -y install cronie 
-RUN yum -y install crontabs
+RUN yum -y install cronie
 # comment out PAM
 RUN sed -i -e '/pam_loginuid.so/s/^/#/' /etc/pam.d/crond
 #Add your cron file
