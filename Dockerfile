@@ -50,7 +50,7 @@ EXPOSE 8080
 
 
 CMD crond && tail -f /dev/null
-CMD ["/bin/bash","/run_moodle.sh"]
+#CMD ["/bin/bash","/run_moodle.sh"]
 
 # Set labels used in OpenShift to describe the builder images
 LABEL io.k8s.description="Wordpress" \
