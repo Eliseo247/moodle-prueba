@@ -48,7 +48,7 @@ EXPOSE 8080
 #CMD cron && tail -f /var/log/cron.log
 
 
-
+CMD crond && tail -f /dev/null
 CMD ["/bin/bash","/run_moodle.sh"]
 
 # Set labels used in OpenShift to describe the builder images
