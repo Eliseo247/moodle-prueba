@@ -19,6 +19,8 @@ RUN chmod 775 /opt/app-root/src
 
 ADD php.ini /opt/app-root/etc/php.ini
 COPY run_moodle.sh /
+###############################################################################
+RUN chmod a+rw /etc/passwd
 
 VOLUME /opt/app-root/moodledata
 
