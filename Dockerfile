@@ -12,7 +12,7 @@ ADD cron /etc/cron.d/cron_test
 RUN chmod 0644 /etc/cron.d/cron_test
 #This will add it to the cron table (crontab -e)
 RUN crontab /etc/cron.d/cron_test
-RUN mkdir  /hello.txt
+RUN touch  /hello.txt
 RUN chmod 777 /hello.txt
 
 #RUN touch /var/log/cron.log
