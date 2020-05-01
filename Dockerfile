@@ -14,14 +14,14 @@ RUN chmod 0644 /etc/cron.d/cron_test
 RUN crontab /etc/cron.d/cron_test
 
 
-RUN touch /var/log/cron.log
+#RUN touch /var/log/cron.log
 # Setup cron job
-RUN (crontab -l ; echo "* * * * * echo "Hello world" >> /var/log/cron.log") | crontab
+#RUN (crontab -l ; echo "* * * * * echo "Hello world" >> /var/log/cron.log") | crontab
 #* * * * * /usr/bin/php  /opt/app-root/src/admin/cli/cron.php >/dev/null
 
-ADD crontab /etc/
-ADD 0hourly /etc/cron.d/
-ADD my-script.sh /usr/local/bin/
+#ADD crontab /etc/
+#ADD 0hourly /etc/cron.d/
+#ADD my-script.sh /usr/local/bin/
 
 #ADD https://download.moodle.org/stable38/moodle-latest-38.tgz /
 #RUN chmod a+rw /moodle-latest-38.tgz
@@ -45,9 +45,9 @@ USER 997
 EXPOSE 8080
 #CMD ["cron", "-f"]
 # Run the command on container startup
-CMD cron && tail -f /var/log/cron.log
+#CMD cron && tail -f /var/log/cron.log
 
-CMD crond && tail -f /dev/null
+
 
 CMD ["/bin/bash","/run_moodle.sh"]
 
