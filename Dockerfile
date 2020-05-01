@@ -2,7 +2,17 @@
 FROM php-73-rhel7:latest  
 MAINTAINER Eliseo RAMIREZ
 USER root
-RUN yum -y install cronie 
+
+#RUN yum -y install cronie 
+RUN yum -y install crontabs
+# comment out PAM
+RUN sed -i -e '/pam_loginuid.so/s/^/#/' /etc/pam.d/crond
+#Add your cron file
+ADD cron /etc/cron.d/cron_test
+RUN chmod 0644 /etc/cron.d/cron_test
+#This will add it to the cron table (crontab -e)
+RUN crontab /etc/cron.d/cron_test
+
 
 RUN touch /var/log/cron.log
 # Setup cron job
@@ -36,6 +46,8 @@ EXPOSE 8080
 #CMD ["cron", "-f"]
 # Run the command on container startup
 CMD cron && tail -f /var/log/cron.log
+
+CMD crond && tail -f /dev/null
 
 CMD ["/bin/bash","/run_moodle.sh"]
 
