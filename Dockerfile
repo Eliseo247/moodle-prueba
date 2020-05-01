@@ -48,8 +48,8 @@ EXPOSE 8080
 
 #CMD ["/usr/sbin/init"]
 CMD ["/bin/bash","/run_moodle.sh"]
-CMD ["/usr/sbin/crond", "-f"]
-#CMD ["/entry.sh"]
+#CMD ["/usr/sbin/crond", "-f"]
+CMD ["/entry.sh"]
 
 # Set labels used in OpenShift to describe the builder images
 LABEL io.k8s.description="Wordpress" \
