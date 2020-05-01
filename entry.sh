@@ -1,4 +1,4 @@
 #!/bin/sh
 
 # start cron
-/usr/sbin/crond -f -
+/usr/sbin/crond -f -l 8
