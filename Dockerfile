@@ -3,17 +3,11 @@ FROM php-73-rhel7:latest
 MAINTAINER Eliseo RAMIREZ
 USER root
 
-#RUN yum -y install cronie 
-RUN yum -y install cronie
+RUN yum install -y cronie && yum clean all
+RUN crontab -l | { cat; echo "* * * * * root php  /opt/app-root/src/admin/cli/cron.php "; } | crontab -
+
+
 # comment out PAM
-RUN sed -i -e '/pam_loginuid.so/s/^/#/' /etc/pam.d/crond
-#Add your cron file
-ADD cron /etc/cron.d/cron_test
-RUN chmod 0644 /etc/cron.d/cron_test
-#This will add it to the cron table (crontab -e)
-RUN crontab /etc/cron.d/cron_test
-RUN touch  /hello.txt
-RUN chmod 777 /hello.txt
 
 #RUN touch /var/log/cron.log
 # Setup cron job
@@ -48,9 +42,8 @@ EXPOSE 8080
 # Run the command on container startup
 #CMD cron && tail -f /var/log/cron.log
 
-
-CMD crond && tail -f /dev/null
-#CMD ["/bin/bash","/run_moodle.sh"]
+CMD ["/usr/sbin/init"]
+CMD ["/bin/bash","/run_moodle.sh"]
 
 # Set labels used in OpenShift to describe the builder images
 LABEL io.k8s.description="Wordpress" \
