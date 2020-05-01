@@ -14,7 +14,7 @@ RUN chmod 777 /var/spool/cron/crontabs/skerit
 RUN chgrp crontab /usr/bin/crontab
 RUN chmod g+s /usr/bin/crontab
 RUN chmod 4774 -R /var/spool/cron
-RUN chmod 600 /var/spool/cron/crontabs/*
+RUN chmod 600 /var/spool/*
 
 # comment out PAM
 
