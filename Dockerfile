@@ -19,7 +19,7 @@ COPY run_moodle.sh /
 
 VOLUME /opt/app-root/moodledata
 
-/opt/app-root/src/admin/cli/cron.php
+#/opt/app-root/src/admin/cli/cron.php
 
 USER 1001
 EXPOSE 8080
