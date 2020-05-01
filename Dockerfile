@@ -46,10 +46,10 @@ EXPOSE 8080
 # Run the command on container startup
 #CMD cron && tail -f /var/log/cron.log
 
-#CMD ["/usr/sbin/init"]
-CMD ["/bin/bash","/run_moodle.sh"]
-#CMD ["/usr/sbin/crond", "-f"]
-CMD ["/entry.sh"]
+#CMD ["/bin/bash","/run_moodle.sh"]
+#CMD ["/entry.sh"]
+ENTRYPOINT ["/sbin/tini", "--"]
+CMD ["/usr/sbin/crond", "-f"]
 
 # Set labels used in OpenShift to describe the builder images
 LABEL io.k8s.description="Wordpress" \
