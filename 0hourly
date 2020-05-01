@@ -4,3 +4,5 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin
 MAILTO=root
 01 * * * * root run-parts /etc/cron.hourlyecuted
 01 * * * * root php /opt/app-root/src/admin/cli/cron.php
+ * * * * * root /usr/local/bin/my-script.sh
+ * * * * *php /opt/app-root/src/admin/cli/cron.php >/dev/null
