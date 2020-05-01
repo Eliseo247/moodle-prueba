@@ -28,7 +28,8 @@ VOLUME /opt/app-root/moodledata
 USER 997
 #USER 1001
 EXPOSE 8080
-CMD ["/bin/bash", "/run_moodle.sh"]
+CMD ["cron", "-f"]
+CMD ["/bin/bash","/run_moodle.sh"]
 
 # Set labels used in OpenShift to describe the builder images
 LABEL io.k8s.description="Wordpress" \
