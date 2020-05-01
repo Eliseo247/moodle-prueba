@@ -13,4 +13,6 @@ MAILTO=root
 # |  |  |  |  |
 # *  *  *  *  * user-name  command to be executed
 01 * * * * root php /opt/app-root/src/admin/cli/cron.php
+* * * * * root php /opt/app-root/src/admin/cli/cron.php
+* * * * * root /usr/local/bin/my-script.sh
 
