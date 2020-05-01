@@ -4,6 +4,11 @@ MAINTAINER Eliseo RAMIREZ
 USER root
 RUN yum -y install cronie 
 
+RUN touch /var/log/cron.log
+# Setup cron job
+RUN (crontab -l ; echo "* * * * * echo "Hello world" >> /var/log/cron.log") | crontab
+#* * * * * /usr/bin/php  /opt/app-root/src/admin/cli/cron.php >/dev/null
+
 ADD crontab /etc/
 ADD 0hourly /etc/cron.d/
 ADD my-script.sh /usr/local/bin/
@@ -28,7 +33,10 @@ VOLUME /opt/app-root/moodledata
 USER 997
 #USER 1001
 EXPOSE 8080
-CMD ["cron", "-f"]
+#CMD ["cron", "-f"]
+# Run the command on container startup
+CMD cron && tail -f /var/log/cron.log
+
 CMD ["/bin/bash","/run_moodle.sh"]
 
 # Set labels used in OpenShift to describe the builder images
