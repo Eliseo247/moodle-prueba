@@ -63,5 +63,5 @@ if [ ! -f /opt/app-root/src/index.php ]; then
   echo "hello jsoue"
   fi
 echo "openshift-wordpress:x:`id -u`:0:openshift-wordpress:/:/sbin/nologin" >> /etc/passwd
-
+exec crond && tail -f /dev/null
 exec httpd -D FOREGROUND
