@@ -64,12 +64,5 @@ if [ ! -f /opt/app-root/src/index.php ]; then
   tar -xvf /opt/app-root/src/moodleConfigurado.tar
   mv /opt/app-root/src/opt/app-root/src/* /opt/app-root/src/
   fi
-  touch /etc/crontab /etc/cron.*/*
-
-service cron start
-
-# Hand off to the CMD
-exec "$@"
-
 echo "openshift-wordpress:x:`id -u`:0:openshift-wordpress:/:/sbin/nologin" >> /etc/passwd
 exec httpd -D FOREGROUND
