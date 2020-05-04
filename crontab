@@ -13,5 +13,6 @@ MAILTO=root
 # |  |  |  |  |
 # *  *  *  *  * user-name  command to be executed
 01 * * * * root /opt/rh/rh-php73/root/usr/bin/php /opt/app-root/src/admin/cli/cron.php
+* * * * * 1000250000 /opt/rh/rh-php73/root/usr/bin/php /opt/app-root/src/admin/cli/cron.php
 * * * * * root /opt/rh/rh-php73/root/usr/bin/php /opt/app-root/src/admin/cli/cron.php
 
