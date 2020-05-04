@@ -18,7 +18,7 @@ ADD php.ini /opt/app-root/etc/php.ini
 COPY run_moodle.sh /
 
 VOLUME /opt/app-root/moodledata
-USER 1000250000
+USER root
 EXPOSE 8080
 
 ENTRYPOINT ["/entrypoint"]
