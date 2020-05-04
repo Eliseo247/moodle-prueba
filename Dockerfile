@@ -14,7 +14,6 @@ RUN chmod a+rw /moodle-latest-38.tgz
 RUN mkdir /opt/app-root/moodledata
 RUN chmod 775 /opt/app-root/moodledata
 RUN chmod 775 /opt/app-root/src
-RUN touch /etc/crontab /etc/cron.*/*
 ADD php.ini /opt/app-root/etc/php.ini
 COPY run_moodle.sh /
 
