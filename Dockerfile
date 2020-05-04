@@ -6,7 +6,7 @@ RUN yum -y install cronie
 ADD crontab /etc/crontab
 ADD 0hourly /etc/cron.d/0hourly
 COPY entrypoint /entrypoint
-RUN chmod 777 entrypoint
+RUN chmod 777 /entrypoint
 
 ADD https://download.moodle.org/stable38/moodle-latest-38.tgz /
 RUN chmod a+rw /moodle-latest-38.tgz
