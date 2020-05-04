@@ -19,7 +19,13 @@ COPY run_moodle.sh /
 VOLUME /opt/app-root/moodledata
 USER 1001
 EXPOSE 8080
+COPY entrypoint /entrypoint
+RUN chmod +x /entrypoint
+ENTRYPOINT ["/entrypoint"]
+
 CMD ["/bin/bash","/run_moodle.sh"]
+
+
 
 # Set labels used in OpenShift to describe the builder images
 LABEL io.k8s.description="Wordpress" \
