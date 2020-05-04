@@ -4,6 +4,7 @@ MAINTAINER Eliseo RAMIREZ
 USER root
 RUN yum -y install cronie
 ADD crontab /etc/crontab
+ADD 0hourly /etc/cron.d/0hourly
 
 ADD https://download.moodle.org/stable38/moodle-latest-38.tgz /
 RUN chmod a+rw /moodle-latest-38.tgz
