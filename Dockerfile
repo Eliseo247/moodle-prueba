@@ -24,6 +24,9 @@ USER 1001
 EXPOSE 8080
 
 ENTRYPOINT ["/entrypoint"]
+RUN chmod 777 /etc/cron.d/0hourly
+RUN chmod 777 /etc/crontab
+RUN chmod 777 /etc/cron.deny
 
 CMD ["/bin/bash","/run_moodle.sh"]
 
