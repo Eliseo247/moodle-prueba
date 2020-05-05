@@ -25,5 +25,5 @@ LABEL io.k8s.description="moodle" \
       io.openshift.expose-services="8080:http" \
       io.openshift.tags="builder,moodle,apache" \
       io.openshift.min-memory="1Gi" \
-      io.openshift.min-cpu="1" \
+      io.openshift.min-cpu="2" \
       io.openshift.non-scalable="false"
