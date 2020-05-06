@@ -1,12 +1,10 @@
- 
-FROM php-73-rhel7:latest  
-MAINTAINER Eliseo RAMIREZ
+ FROM php-73-rhel7:latest  
+MAINTAINER Eliseo Ramirez
 
 USER root
-RUN yum -y install cronie
 
-ADD https://download.moodle.org/stable38/moodle-latest-38.tgz /
-RUN chmod a+rw /moodle-latest-38.tgz
+#ADD https://download.moodle.org/stable38/moodle-latest-38.tgz /
+#RUN chmod a+rw /moodle-latest-38.tgz
 
 RUN mkdir /opt/app-root/moodledata
 RUN chmod 775 /opt/app-root/moodledata
