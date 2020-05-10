@@ -2,7 +2,8 @@ FROM php-73-rhel7:latest
 MAINTAINER Eliseo Ramirez
 
 USER root
-RUN yum install xmlrpc.x86_64
+#RUN yum install xmlrpc.x86_64
+RUN yum search xmlrpc
 RUN mkdir /opt/app-root/moodledata
 RUN chmod 775 /opt/app-root/moodledata
 RUN chmod 775 /opt/app-root/src
