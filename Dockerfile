@@ -2,10 +2,7 @@ FROM php-73-rhel7:latest
 MAINTAINER Eliseo Ramirez
 
 USER root
-
-#ADD https://download.moodle.org/stable38/moodle-latest-38.tgz /
-#RUN chmod a+rw /moodle-latest-38.tgz
-
+RUN yum -y install php-xmlrpc
 RUN mkdir /opt/app-root/moodledata
 RUN chmod 775 /opt/app-root/moodledata
 RUN chmod 775 /opt/app-root/src
