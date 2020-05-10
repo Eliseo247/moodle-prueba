@@ -3,7 +3,7 @@ MAINTAINER Eliseo Ramirez
 
 USER root
 RUN yum -y install cronie
-RUN yum -y install php-xmlrpc
+RUN yum -y install php-xmlrpc-c
 RUN mkdir /opt/app-root/moodledata
 RUN chmod 775 /opt/app-root/moodledata
 RUN chmod 775 /opt/app-root/src
